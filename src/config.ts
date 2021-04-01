@@ -59,6 +59,7 @@ export const prod: Config = {
 
   startDate: DateTime.fromObject({
     hour: 11,
+    minute: 15,
     day: 1,
     month: 4,
     year: 2021,
