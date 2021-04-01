@@ -22,7 +22,7 @@ export const dev: Config = {
     zone: "America/New_York",
   }),
   endDate: DateTime.fromObject({
-    hour: 8,
+    hour: 23,
     minute: 17,
     day: 1,
     month: 4,
@@ -77,8 +77,7 @@ export const prod: Config = {
   silverChannel: "C01SZKVGJUB",
   goldChannel: "C01SWB6EFNH",
   bronzeChannel: "C01SWBBTEBF",
-  // TODO
-  host: "",
+  host: "https://silver-and-gold.hosted.hackclub.com",
 };
 
 export default (): Config => {

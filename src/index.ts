@@ -13,6 +13,9 @@ app.message(async ({ message, client, event }) => {
     return;
   }
 
+  console.log(config().startDate.diffNow().toMillis());
+  console.log(config().endDate.diffNow().toMillis());
+
   if (
     config().blockedChannels.includes(message.channel) &&
     config().startDate.diffNow().toMillis() < 0 &&
