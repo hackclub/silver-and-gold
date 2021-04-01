@@ -55,6 +55,7 @@ export const prod: Config = {
     "C0K3R2SD8", // #linux
     "CUWFYLM41", // #stonks
     "C01SZSTGX2R", // not-lounge
+    "C01SW777PUN", // not not lounge
   ],
 
   startDate: DateTime.fromObject({
