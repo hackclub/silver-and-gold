@@ -43,9 +43,6 @@ export const prod: Config = {
     "C0EA9S0A0", // #code
     "C0131FX5K98", // #javascript
     "C0C78SG9L", // #hq
-    "C0M8PUPU6", // #ship (?)
-    "C01504DCLVD", // #scrapbook (?)
-    "CD1JSG9UK", // #minecraft (Y)
     "C0HNE8UUU", // #studycorner
     "C74HZS5A5", // #lobby
     "C013AGZKYCS", // #question-of-the-day
