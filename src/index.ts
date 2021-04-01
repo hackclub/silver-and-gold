@@ -118,5 +118,7 @@ app.message(async ({ message, client, event }) => {
   await app.start(parseInt(process.env.PORT as string) || 3000);
   console.log("App started");
 
+  console.log(`Configured to start at ${config().startDate.toLocaleString()}`);
+
   state.challenge = await newChallenge();
 })();
