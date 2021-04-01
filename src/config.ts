@@ -18,7 +18,7 @@ export const dev: Config = {
 
   // Channel to send people to when they don't have Gold
   silverChannel: "C01TBNA2FQR",
-  goldChannel: "",
+  goldChannel: "C01T0D24ZBL",
   bronzeChannel: "",
   host: "https://silver-and-gold.ngrok.io",
 };

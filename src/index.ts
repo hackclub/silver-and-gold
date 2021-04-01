@@ -1,24 +1,12 @@
-import { App, ExpressReceiver } from "@slack/bolt";
-
 import { createConnection } from "typeorm";
 
 import Member, { Membership } from "./models/member";
 
 import config from "./config";
+import { newChallenge } from "./challenge";
 
-import express from "express";
-
-const receiver = new ExpressReceiver({
-  signingSecret: process.env.SIGNING_SECRET as string,
-});
-
-const app = new App({
-  signingSecret: process.env.SIGNING_SECRET,
-  token: process.env.TOKEN,
-  receiver,
-});
-
-receiver.router.use(express.static("assets"));
+import state, { app } from "./state";
+import { silverWelcome } from "./messages";
 
 app.message(async ({ message, client, event }) => {
   if (message.subtype) {
@@ -30,7 +18,7 @@ app.message(async ({ message, client, event }) => {
 
     // Check to see if they have Hack Club Gold
     const member = await Member.findOne({ userId: user });
-    if (member && member.membership == Membership.GOLD) {
+    if (member && member.membership != Membership.SILVER) {
       // "I'll allow it"
       console.log(`User ${user} has Hack Club Gold!`);
       return;
@@ -78,15 +66,16 @@ app.message(async ({ message, client, event }) => {
       });
 
       // If the invitation succeeded, welcome them
-      await client.chat.postMessage({
+      await client.chat.postEphemeral({
         channel: config().silverChannel,
         text: `Welcome to Hack Club Silver, <@${user}>`,
+        user,
         blocks: [
           {
             type: "section",
             text: {
               type: "mrkdwn",
-              text: `Welcome to Hack Club Silver, <@${user}>`,
+              text: silverWelcome({ user }),
             },
           },
           {
@@ -124,4 +113,6 @@ app.message(async ({ message, client, event }) => {
 
   await app.start(parseInt(process.env.PORT as string) || 3000);
   console.log("App started");
+
+  state.challenge = await newChallenge();
 })();
