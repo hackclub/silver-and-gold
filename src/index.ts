@@ -13,7 +13,11 @@ app.message(async ({ message, client, event }) => {
     return;
   }
 
-  if (config().blockedChannels.includes(message.channel)) {
+  if (
+    config().blockedChannels.includes(message.channel) &&
+    config().startDate.diffNow().toMillis() < 0 &&
+    config().endDate.diffNow().toMillis() > 0
+  ) {
     const user: string = (message as any).user;
 
     // Check to see if they have Hack Club Gold

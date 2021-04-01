@@ -13,13 +13,27 @@ export interface Config {
 export const dev: Config = {
   // Channels that require Hack Club Gold
   blockedChannels: ["C01SW1XUXN1"],
-  startDate: DateTime.utc(2021, 4, 1, 0, 0, 0, 0),
-  endDate: DateTime.utc(2021, 4, 2, 0, 0, 0, 0),
+  startDate: DateTime.fromObject({
+    hour: 8,
+    minute: 16,
+    day: 1,
+    month: 4,
+    year: 2021,
+    zone: "America/New_York",
+  }),
+  endDate: DateTime.fromObject({
+    hour: 8,
+    minute: 17,
+    day: 1,
+    month: 4,
+    year: 2021,
+    zone: "America/New_York",
+  }),
 
   // Channel to send people to when they don't have Gold
   silverChannel: "C01TBNA2FQR",
   goldChannel: "C01T0D24ZBL",
-  bronzeChannel: "",
+  bronzeChannel: "C01T20DCTEW",
   host: "https://silver-and-gold.ngrok.io",
 };
 
@@ -48,8 +62,20 @@ export const prod: Config = {
     "CUWFYLM41", // #stonks
   ],
 
-  startDate: DateTime.utc(2021, 4, 1, 0, 0, 0, 0),
-  endDate: DateTime.utc(2021, 4, 2, 0, 0, 0, 0),
+  startDate: DateTime.fromObject({
+    hour: 9,
+    day: 1,
+    month: 4,
+    year: 2021,
+    zone: "America/New_York",
+  }),
+  endDate: DateTime.fromObject({
+    hour: 21,
+    day: 1,
+    month: 4,
+    year: 2021,
+    zone: "America/New_York",
+  }),
 
   // TODO: rename these channels before `startDate`
   // they'll have a boring name before it starts so no one will know.

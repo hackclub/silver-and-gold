@@ -53,12 +53,16 @@ app.event("reaction_added", async ({ event, client }) => {
       state.challenge = await newChallenge();
 
       try {
-        await app.client.conversations.invite({
+        const resp = await app.client.conversations.invite({
           channel: config().bronzeChannel,
           users: event.user,
           token: process.env.TOKEN,
         });
-      } catch (e) {}
+
+        console.log(resp);
+      } catch (e) {
+        console.log(e);
+      }
 
       try {
         // await app.client.conversations.kick({
@@ -69,7 +73,7 @@ app.event("reaction_added", async ({ event, client }) => {
 
         await client.chat.postEphemeral({
           channel: config().bronzeChannel,
-          text: `Welcome to Hack Club Silver, <@${event.user}>`,
+          text: `Something went wrong, <@${event.user}>`,
           user: event.user,
           blocks: [
             {
@@ -81,7 +85,7 @@ app.event("reaction_added", async ({ event, client }) => {
             },
             {
               type: "image",
-              image_url: `${config().host}/silver.gif`,
+              image_url: `${config().host}/bronze.gif`,
               alt_text: "Hack Club Silver",
             },
           ],
@@ -89,7 +93,9 @@ app.event("reaction_added", async ({ event, client }) => {
 
         member.membership = Membership.BRONZE;
         await member.save();
-      } catch (e) {}
+      } catch (e) {
+        console.log(e);
+      }
     }, 3000);
   }
 });

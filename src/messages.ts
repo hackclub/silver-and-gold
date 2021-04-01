@@ -1,5 +1,7 @@
 export const bronzeWelcome = ({ user }: { user: string }) => {
-  return `welcome to hack club bronze <@${user}>`;
+  return `Hmm... it seems something went wrong while upgrading you to Hack Club Gold, <@${user}>. :sadparrot:  We'll look in to it, but for now, try talking with our Support <@U01P8NH2WK0>.
+  
+  We've temporarily restored your message-posting abilities until we resolve this issue!`;
 };
 
 export const silverWelcome = ({ user }: { user: string }) => {
