@@ -42,14 +42,12 @@ export const prod: Config = {
     "C0266FRGV", // #lounge
     "C0EA9S0A0", // #code
     "C0131FX5K98", // #javascript
-    "C0C78SG9L", // #hq
     "C0HNE8UUU", // #studycorner
     "C74HZS5A5", // #lobby
     "C013AGZKYCS", // #question-of-the-day
     "C0NP503L7", // #hackathons
     "C1C3K2RQV", // #design
     "CCW6Q86UF", // #apple
-    "CNMU9L92Q", // #confessions
     "C0DCUUH7E", // #music
     "CDJMS683D", // #counttoamillion
     "C0D845A5S", // #college-apps
