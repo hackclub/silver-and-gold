@@ -49,7 +49,6 @@ export const prod: Config = {
     "C1C3K2RQV", // #design
     "CCW6Q86UF", // #apple
     "C0DCUUH7E", // #music
-    "CDJMS683D", // #counttoamillion
     "C0D845A5S", // #college-apps
     "C0121LVV79P", // #rust
     "C015HNHD7FA", // #vim
