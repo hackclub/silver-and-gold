@@ -6,6 +6,7 @@ import config from "./config";
 import EmojiList from "./emoji";
 import { bronzeWelcome, silverWelcome } from "./messages";
 import Member, { Membership } from "./models/member";
+import Solving from "./models/solving";
 import state, { app } from "./state";
 
 export interface Challenge {
@@ -45,6 +46,13 @@ app.event("reaction_added", async ({ event, client }) => {
       ts: (event.item as any).ts,
       token: process.env.TOKEN,
     });
+
+    const solving = new Solving();
+
+    solving.userId = event.user;
+    solving.emoji = state.challenge.right;
+
+    await solving.save();
 
     setTimeout(async () => {
       state.challenge = await newChallenge();
