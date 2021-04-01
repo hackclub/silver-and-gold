@@ -29,9 +29,6 @@ app.event("reaction_added", async ({ event, client }) => {
     event.reaction == state.challenge.right
   ) {
     const member = await Member.findOne({ userId: event.user });
-    if (member && member.membership != Membership.SILVER) {
-      return;
-    }
 
     clearTimeout(state.challenge.interval);
     state.challenge.isRunning = false;
