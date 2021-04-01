@@ -9,6 +9,27 @@ import state, { app } from "./state";
 import { silverWelcome } from "./messages";
 import Solving from "./models/solving";
 
+app.command("/emojileaderboard", async ({ ack }) => {
+  const items = await Solving.createQueryBuilder("solving")
+    .select('solving."userId"')
+    .addSelect('COUNT(solving."userId")', "count")
+    .groupBy('"userId"')
+    .orderBy("count", "DESC")
+    .limit(5)
+    .getRawMany<{ userId: string; count: number }>();
+
+  let text = `Here are the top ${items.length} people to have completed the emoji puzzle!\n\n`;
+
+  text += items
+    .map(
+      ({ userId, count }) =>
+        `<@${userId}>'s solved it ${count} time${count == 1 ? "" : "s"}!`
+    )
+    .join("\n");
+
+  await ack(text);
+});
+
 app.message(async ({ message, client, event }) => {
   if (message.subtype) {
     return;
