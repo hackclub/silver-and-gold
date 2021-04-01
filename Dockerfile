@@ -4,8 +4,8 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-ENV NODE_ENV production
-
 RUN yarn && yarn build
+
+ENV NODE_ENV production
 
 CMD ["yarn", "start"]
