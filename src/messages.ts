@@ -5,24 +5,12 @@ export const bronzeWelcome = ({ user }: { user: string }) => {
 };
 
 export const silverWelcome = ({ user }: { user: string }) => {
-  return `Welcome to Hack Club Silver, <@${user}>! This is where you'll hang out until you unlock Hack Club Gold :first_place_medal:
-              
-*Here's how it works*:
-              
-Every so often, I'll post the cryptic name of a Slack emoji :ghost: It'll look something like \`:skdjfldkjf:\`, so watch out for it!
-              
-I'll continue to reveal more characters, one after the other, until I've unveiled the full emoji. Here's an example:
-              
-\`\`\`
-:skfjvur:
-:ekfjvur:
-:egfjvur:
-:eggjvur:
-:eggsvur:
-:eggsdur:
-:eggsder:
-:eggsdee:
-\`\`\`
-              
-The first person to react with the actual emoji will be promoted to Hack Club Gold!`;
+  return `<@${user}> You’ve been added to this Silver member channel because posting in certain channels now requires Gold member status.
+React to this message with correct emoji to be promoted to Hack Club Gold!
+INSTRUCTIONS:
+Click the “Add reaction” button on this message (long-press on mobile) and then type the emoji.
+Whoever does this first gets a promotion from Silver to Gold!
+This message will self destruct if no one completes the challenge before the answer is revealed.
+If someone gets it before you do, a new challenge will appear, so have patience and try again.
+If you’re confused, please ask for help ^,^ in this channel!`;
 };
