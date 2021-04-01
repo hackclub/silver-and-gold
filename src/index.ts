@@ -40,7 +40,7 @@ app.message(async ({ message, client, event }) => {
             type: "section",
             text: {
               type: "mrkdwn",
-              text: `Sorry <@${user}>, but you need Hack Club Gold to post messages here!`,
+              text: `Sorry <@${user}>, but you need Hack Club Gold to post messages here! Check <#C0266FRGT> for more info :first_place_medal:`,
             },
           },
           {
