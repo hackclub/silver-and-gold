@@ -54,6 +54,7 @@ export const prod: Config = {
     "C015HNHD7FA", // #vim
     "C0K3R2SD8", // #linux
     "CUWFYLM41", // #stonks
+    "C01SZSTGX2R", // not-lounge
   ],
 
   startDate: DateTime.fromObject({
