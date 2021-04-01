@@ -98,6 +98,7 @@ app.event("reaction_added", async ({ event, client }) => {
         } else {
           const member = new Member();
           member.membership = Membership.BRONZE;
+          member.userId = event.user;
           await member.save();
         }
       } catch (e) {
