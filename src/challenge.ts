@@ -29,7 +29,7 @@ app.event("reaction_added", async ({ event, client }) => {
     event.reaction == state.challenge.right
   ) {
     const member = await Member.findOne({ userId: event.user });
-    if (!member || member.membership != Membership.SILVER) {
+    if (member && member.membership != Membership.SILVER) {
       return;
     }
 
@@ -91,8 +91,15 @@ app.event("reaction_added", async ({ event, client }) => {
           ],
         });
 
-        member.membership = Membership.BRONZE;
-        await member.save();
+        if (member) {
+          member.membership = Membership.BRONZE;
+
+          await member.save();
+        } else {
+          const member = new Member();
+          member.membership = Membership.BRONZE;
+          await member.save();
+        }
       } catch (e) {
         console.log(e);
       }
