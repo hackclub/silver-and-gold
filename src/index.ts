@@ -7,6 +7,7 @@ import { newChallenge } from "./challenge";
 
 import state, { app } from "./state";
 import { silverWelcome } from "./messages";
+import Solving from "./models/solving";
 
 app.message(async ({ message, client, event }) => {
   if (message.subtype) {
@@ -114,7 +115,7 @@ app.message(async ({ message, client, event }) => {
   await createConnection({
     type: "postgres",
     url: process.env.DATABASE_URL,
-    entities: [Member],
+    entities: [Member, Solving],
     synchronize: true,
   });
 
