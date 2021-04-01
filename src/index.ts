@@ -15,7 +15,7 @@ app.command("/emojileaderboard", async ({ ack }) => {
     .addSelect('COUNT(solving."userId")', "count")
     .groupBy('"userId"')
     .orderBy("count", "DESC")
-    .limit(5)
+    .limit(10)
     .getRawMany<{ userId: string; count: number }>();
 
   let text = `Here are the top ${items.length} people to have completed the emoji puzzle!\n\n`;
