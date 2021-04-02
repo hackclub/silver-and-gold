@@ -30,12 +30,12 @@ app.command("/emojileaderboard", async ({ ack }) => {
 
   text += items
     .map(
-      ({ userId, count, lastSolvedEmoji }) =>
-        `<@${userId}>'s solved it ${count} time${
+      ({ userId, count, lastSolvedEmoji }, index) =>
+        `${index}: <@${userId}>'s solved it *${count}* time${
           count == 1 ? "" : "s"
-        }! The last emoji they solved was :${lastSolvedEmoji}:`
+        }!\nLast emoji solved:${lastSolvedEmoji}:`
     )
-    .join("\n");
+    .join("\n\n");
 
   await ack(text);
 });
