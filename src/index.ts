@@ -13,17 +13,27 @@ app.command("/emojileaderboard", async ({ ack }) => {
   const items = await Solving.createQueryBuilder("solving")
     .select('solving."userId"')
     .addSelect('COUNT(solving."userId")', "count")
+    .addSelect((sg) => {
+      return sg
+        .select("emojisolving.emoji", "emoji")
+        .from(Solving, "emojisolving")
+        .where('emojisolving."userId" = solving."userId"')
+        .orderBy("emojisolving.id", "DESC")
+        .limit(1);
+    }, "lastSolvedEmoji")
     .groupBy('"userId"')
     .orderBy("count", "DESC")
     .limit(10)
-    .getRawMany<{ userId: string; count: number }>();
+    .getRawMany<{ userId: string; count: number; lastSolvedEmoji: string }>();
 
   let text = `Here are the top ${items.length} people to have completed the emoji puzzle!\n\n`;
 
   text += items
     .map(
-      ({ userId, count }) =>
-        `<@${userId}>'s solved it ${count} time${count == 1 ? "" : "s"}!`
+      ({ userId, count, lastSolvedEmoji }) =>
+        `<@${userId}>'s solved it ${count} time${
+          count == 1 ? "" : "s"
+        }! The last emoji they solved was :${lastSolvedEmoji}:`
     )
     .join("\n");
 

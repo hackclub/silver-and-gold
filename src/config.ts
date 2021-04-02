@@ -40,7 +40,6 @@ export const dev: Config = {
 export const prod: Config = {
   blockedChannels: [
     "C0266FRGV", // #lounge
-    "C0EA9S0A0", // #code
     "C0131FX5K98", // #javascript
     "C0HNE8UUU", // #studycorner
     "C74HZS5A5", // #lobby
