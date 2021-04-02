@@ -23,7 +23,7 @@ app.command("/emojileaderboard", async ({ ack }) => {
     }, "lastSolvedEmoji")
     .groupBy('"userId"')
     .orderBy("count", "DESC")
-    .limit(10)
+    .limit(5)
     .getRawMany<{ userId: string; count: number; lastSolvedEmoji: string }>();
 
   let text = `Here are the top ${items.length} people to have completed the emoji puzzle!\n\n`;
@@ -31,9 +31,9 @@ app.command("/emojileaderboard", async ({ ack }) => {
   text += items
     .map(
       ({ userId, count, lastSolvedEmoji }, index) =>
-        `${index}: <@${userId}>'s solved it *${count}* time${
+        `${index + 1}: <@${userId}>'s solved it *${count}* time${
           count == 1 ? "" : "s"
-        }!\nLast emoji solved:${lastSolvedEmoji}:`
+        }!\nLast emoji solved: :${lastSolvedEmoji}:`
     )
     .join("\n\n");
 
