@@ -70,11 +70,9 @@ app.event("reaction_added", async ({ event, client }) => {
       }
 
       try {
-        // await app.client.conversations.kick({
-        //   channel: config().silverChannel,
-        //   user: event.user,
-        //   token: process.env.TOKEN,
-        // });
+        if (member && member.membership == Membership.BRONZE) {
+          return;
+        }
 
         await client.chat.postEphemeral({
           channel: config().bronzeChannel,
