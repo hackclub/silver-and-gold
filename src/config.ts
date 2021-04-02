@@ -39,22 +39,22 @@ export const dev: Config = {
 
 export const prod: Config = {
   blockedChannels: [
-    "C0266FRGV", // #lounge
-    "C0131FX5K98", // #javascript
-    "C0HNE8UUU", // #studycorner
-    "C74HZS5A5", // #lobby
-    "C013AGZKYCS", // #question-of-the-day
-    "C0NP503L7", // #hackathons
-    "C1C3K2RQV", // #design
-    "CCW6Q86UF", // #apple
-    "C0DCUUH7E", // #music
-    "C0D845A5S", // #college-apps
-    "C0121LVV79P", // #rust
-    "C015HNHD7FA", // #vim
-    "C0K3R2SD8", // #linux
-    "CUWFYLM41", // #stonks
-    "C01SZSTGX2R", // not-lounge
-    "C01SW777PUN", // not not lounge
+    // "C0266FRGV", // #lounge
+    // "C0131FX5K98", // #javascript
+    // "C0HNE8UUU", // #studycorner
+    // "C74HZS5A5", // #lobby
+    // "C013AGZKYCS", // #question-of-the-day
+    // "C0NP503L7", // #hackathons
+    // "C1C3K2RQV", // #design
+    // "CCW6Q86UF", // #apple
+    // "C0DCUUH7E", // #music
+    // "C0D845A5S", // #college-apps
+    // "C0121LVV79P", // #rust
+    // "C015HNHD7FA", // #vim
+    // "C0K3R2SD8", // #linux
+    // "CUWFYLM41", // #stonks
+    // "C01SZSTGX2R", // not-lounge
+    // "C01SW777PUN", // not not lounge
   ],
 
   startDate: DateTime.fromObject({
